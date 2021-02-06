@@ -9,9 +9,9 @@ const definitionName = 'rnd_node.gh'
 
 // listen for slider change events
 const count_slider = document.getElementById( 'count' )
-count_slider.addEventListener( 'input', onSliderChange, false )
+count_slider.addEventListener( 'mouseup', onSliderChange, false )
 const radius_slider = document.getElementById( 'radius' )
-radius_slider.addEventListener( 'input', onSliderChange, false )
+radius_slider.addEventListener( 'mouseup', onSliderChange, false )
 
 const downloadButton = document.getElementById("downloadButton")
 downloadButton.onclick = download
@@ -165,7 +165,7 @@ function init() {
     scene = new THREE.Scene()
     scene.background = new THREE.Color(1, 1, 1)
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-    camera.position.z = - 30
+    camera.position.z = - 10
 
     // create the renderer and add it to the html
     renderer = new THREE.WebGLRenderer({ antialias: true })
