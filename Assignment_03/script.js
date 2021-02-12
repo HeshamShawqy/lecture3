@@ -16,6 +16,8 @@ radius_slider.addEventListener( 'mouseup', onSliderChange, false )
 const downloadButton = document.getElementById("downloadButton")
 downloadButton.onclick = download
 
+THREE.Object3D.DefaultUp = new THREE.Vector3( 0, 0, 1 );
+
 // set up loader for converting the results to threejs
 const loader = new Rhino3dmLoader()
 loader.setLibraryPath( 'https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/' )
@@ -165,7 +167,7 @@ function init() {
     scene = new THREE.Scene()
     scene.background = new THREE.Color(1, 1, 1)
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-    camera.position.z = - 10
+    camera.position.z = - 100
 
     // create the renderer and add it to the html
     renderer = new THREE.WebGLRenderer({ antialias: true })
@@ -177,7 +179,7 @@ function init() {
 
     // add a directional light
     const directionalLight = new THREE.DirectionalLight( 0xffffff )
-    directionalLight.intensity = 2
+    directionalLight.intensity = 10
     scene.add( directionalLight )
 
     const ambientLight = new THREE.AmbientLight()
